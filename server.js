@@ -34,7 +34,7 @@ app.use(require('./controllers/'));
 app.use(routes);
 
 // turn on connection to db and server
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   //database connection must sync with the model definitions and associations
   app.listen(PORT, () => console.log('Now listening'));
 });
