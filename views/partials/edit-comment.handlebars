@@ -1,0 +1,22 @@
+<article>
+  <a href="/dashboard"> &larr; Back to comments</a>
+  <h2>
+    Edit Comment
+  </h2>
+  <form class="edit-comment-form">
+    <div>
+      <input name="comment-title" type="text" value="{{comment.title}}" />
+      <span>({{format_url comment.comment_url}})</span>
+    </div>
+    <div>
+      {{comment.vote_count}} {{format_plural "point" comment.vote_count}} by you on {{format_date comment.created_at}}
+      |
+      <a href="/comment/{{comment.id}}">{{comment.comments.length}} {{format_plural "comment" comment.comments.length}}</a>
+    </div>
+    <button type="submit">Save comment</button>
+    <button type="button" class="delete-comment-btn">Delete comment</button>
+  </form>
+</article>
+
+<script src="/javascript/edit-comment.js"></script>
+<script src="/javascript/delete-comment.js"></script>
