@@ -18,11 +18,11 @@ Vote.init(
                 key: 'id'
             }
         },
-        post_id: {
+        park: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'post',
+                model: 'park',
                 key: 'id'
             }
         }
