@@ -1,31 +1,25 @@
-<section>
-  <h2>Comment</h2>
-
-  <form class="new-comment-form">
-    <div>
-      <label for="comment-title">Title</label>
-      <input type="text" id="comment-title" name="comment-title" />
+<section class="hero mx-6 pt-6 is-align-content-center is-fullheight-with-navbar">
+  <div class="tile is-12 is-ancestor p-3">
+    <div class="tile is-4 is-vertical is-parent">
+      <article class="tile box is-child has-background-white" style="height: fit-content;">
+        <div class="panel" id="search-panel">
+          <div class="panel-block is-justify-content-center">
+            <div class="field has-addons is-flex-grow-1">
+              <div class="control has-icons-left is-flex-grow-1">
+                <span class="icon">
+                  <i class="fas fa-search" aria-hidden="true"></i>
+                </span>
+                <input class="input" id="park-search" type="text" placeholder="Search for National Parks">
+              </div>
+              <div class="control">
+                <button class="button is-success" id="search-btn">
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
-    <div>
-      <label for="comment-url">Link</label>
-      <input id="comment-url" name="comment-url"/>
-    </div>
-    <button type="submit" class="btn">Submit</button>
-  </form>
+  </div>
 </section>
-
-{{#if comments.length}}
-<section>
-  <h2>Comments</h2>
-  <ol>
-    {{#each comments as |comment|}}
-    <li>
-      {{> comment-info comment }}
-      <a href="/dashboard/edit/{{comment.id}}" class="edit-link">Edit comment</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
-
-<script src="/javascript/add-comment.js"></script>
