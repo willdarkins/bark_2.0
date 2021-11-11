@@ -1,0 +1,12 @@
+<div class="tile is-parent is-12 box is-vertical" id="comments">
+  {{#each this}}
+  <section class="tile is-child " id="comment">
+    <div class="has-text-centered title-block">
+      {{user.username}} on {{format_date created_at}}
+    </div>
+    <div class="has-text-centered" id="comment-text">
+      {{comment_text}}
+    </div>
+  </section>
+  {{/each}}
+</div>
