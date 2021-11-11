@@ -1,7 +1,7 @@
 <article>
   <a href="/dashboard"> &larr; Back to comments</a>
   <h2>
-    Edit Comment
+    Edit comment
   </h2>
   <form class="edit-comment-form">
     <div>
@@ -13,8 +13,8 @@
       |
       <a href="/comment/{{comment.id}}">{{comment.comments.length}} {{format_plural "comment" comment.comments.length}}</a>
     </div>
-    <button type="submit">Save comment</button>
-    <button type="button" class="delete-comment-btn">Delete comment</button>
+    <button id="save-comment-btn" class="is-success">Save comment</button>
+    <button id="delete-comment-btn" class="is-danger-dark">Delete comment</button>
   </form>
 </article>
 
