@@ -30,6 +30,7 @@ if(req.session) {
 }
 });
 
+//DELETE route - Deletes comment from park entry
 router.delete('/:id', withAuth, (req, res) => {
     if (req.session) {
         Comment.destroy({
