@@ -1,25 +1,54 @@
-<section class="hero mx-6 pt-6 is-align-content-center is-fullheight-with-navbar">
-  <div class="tile is-12 is-ancestor p-3">
-    <div class="tile is-4 is-vertical is-parent">
-      <article class="tile box is-child has-background-white" style="height: fit-content;">
-        <div class="panel" id="search-panel">
-          <div class="panel-block is-justify-content-center">
-            <div class="field has-addons is-flex-grow-1">
-              <div class="control has-icons-left is-flex-grow-1">
-                <span class="icon">
-                  <i class="fas fa-search" aria-hidden="true"></i>
-                </span>
-                <input class="input" id="park-search" type="text" placeholder="Search for National Parks">
-              </div>
-              <div class="control">
-                <button class="button is-success" id="search-btn">
-                  Search
-                </button>
-              </div>
-            </div>
-          </div>
+<section class="mx-6 pt-6 is-align-content-center is-fullheight-with-navbar">
+    <div class="tile is-12 box is-ancestor p-3">
+        <div class="tile is-4 is-vertical is-parent">
+            <article class="tile box is-child has-background-white" style="height: fit-content;">
+                <div class="panel" id="search-panel">
+                    <div class="panel-block is-justify-content-center">
+                        <div class="field has-addons is-flex-grow-1">
+                            <div class="control has-icons-left is-flex-grow-1">
+                                <span class="icon">
+                                    <i class="fas fa-search" aria-hidden="true"></i>
+                                </span>
+                                <input class="input" id="park-search" type="text"
+                                    placeholder="Search for National Parks">
+                            </div>
+                            <div class="control">
+                                <button class="button is-success" id="search-btn">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="nat-park-info" style="display:none">
+                    <p class="title block has-text-centered" id="nat-park-name"></p>
+                    <p class="has-text-centered" id="nat-park-description"></p>
+                </div>
+            </article>
         </div>
-      </article>
+        <div class="tile is-8 is-vertical is-parent" id="map-container" style="display:none">
+            <article class="tile box is-child has-background-white" style="height: fit-content;">
+                <div id="nat-park-map" style="height:500px;">
+                </div>
+            </article>
+        </div>
     </div>
-  </div>
+    <a class="button is-normal has-background-success-light is-fullwidth" id="nps-website"
+        href="https://www.nps.gov/index.htm" target="_blank">Learn More
+    </a>
 </section>
+{{#if comments.length}}
+<section>
+  <h2>Comments</h2>
+  <ol>
+    {{#each comments as |comment|}}
+    <li>
+      {{> comment-info comment}}
+      <a href="/dashboard/edit/{{comment.id}}" class="button is-success" id="edit-comment">Edit Comment</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+
+<script src="/public/javascript/add-comment.js"></script>
