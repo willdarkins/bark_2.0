@@ -39,16 +39,18 @@
 </section>
 {{#if comments.length}}
 <section>
-  <h2>Comments</h2>
-  <ol>
-    {{#each comments as |comment|}}
-    <li>
-      {{> comment-info comment}}
-      <a href="/dashboard/edit/{{comment.id}}" class="button is-success" id="edit-comment">Edit Comment</a>
-    </li>
-    {{/each}}
-  </ol>
+    <h2>Comments</h2>
+    <ol>
+        {{#each comments as |comment|}}
+        <li>
+            {{> comment-info comment}}
+            <a href="/dashboard/edit/{{comment.id}}" class="button is-success" id="edit-comment">Edit Comment</a>
+        </li>
+        {{/each}}
+    </ol>
 </section>
 {{/if}}
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6PPvRcVtW9IYbZoNZHRNLzv369862KVs&v=weekly"
+    async></script>
 <script src="/public/javascript/add-comment.js"></script>
