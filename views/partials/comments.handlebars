@@ -6,11 +6,16 @@
     </div>
     <div class="has-text-centered" id="comment-text">
       {{comment_text}}
-    <button type="button" class="like-btn">like</button>
-    </div>
+      <button type="button" class="buttonhas-icons-left has-background-success-dark has-text-white"
+        style="border:none"><span class="icon">
+          <i class="fas fa-check"></i>
+        </span>
+        <span>
+          Like
+        </span>
+      </button>
   </section>
   {{/each}}
 </div>
 
-<script src="/public/javascript/add-comment.js"></script>
 <script src="/public/javascript/like.js"></script>

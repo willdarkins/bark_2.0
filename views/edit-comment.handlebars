@@ -11,10 +11,25 @@
     <div>
       {{comment.vote_count}} {{format_plural "point" comment.vote_count}} by you on {{format_date comment.created_at}}
       |
-      <a href="/comment/{{comment.id}}">{{comment.comments.length}} {{format_plural "comment" comment.comments.length}}</a>
+      <a href="/comment/{{comment.id}}">{{comment.comments.length}} {{format_plural "comment"
+        comment.comments.length}}</a>
     </div>
-    <button id="save-comment-btn" class="is-success">Save comment</button>
-    <button id="delete-comment-btn" class="is-danger-dark">Delete comment</button>
+    <button type="submit" id="save-comment-btn" class="button has-icons-left has-background-success-dark has-text-white"
+      style="border:none"><span class="icon">
+        <i class="fas fa-edit"></i>
+      </span>
+      <span>
+        Update Comment
+      </span></button>
+    <button type="submit" id="delete-comment-btn"
+      class="button has-icons-left has-background-danger-dark has-text-white">
+      <span class="icon">
+        <i class="fas fa-trash-alt"></i>
+      </span>
+      <span>
+        Delete Comment
+      </span>
+    </button>
   </form>
 </article>
 

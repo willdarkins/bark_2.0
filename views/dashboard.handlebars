@@ -37,6 +37,29 @@
         href="https://www.nps.gov/index.htm" target="_blank">Learn More
     </a>
 </section>
+<section>
+    <h2>Add a Comment</h2>
+
+    <form class="new-comment-form">
+        <div>
+            <label for="comment-title">Title</label>
+            <input type="text" id="comment-title" name="comment-title" />
+        </div>
+        <div>
+            <label for="comment-text">Comment</label>
+            <input type="text" id="comment-text" name="comment-text" />
+        </div>
+        <button type="submit" class="button has-icons-left has-background-success-dark has-text-white"
+            style="border:none" id="add-comment-btn">
+            <span class="icon">
+                <i class="fas fa-plus"></i>
+            </span>
+            <span>
+                Add Comment
+            </span>
+        </button>
+    </form>
+</section>
 {{#if comments.length}}
 <section>
     <h2>Comments</h2>
@@ -44,7 +67,15 @@
         {{#each comments as |comment|}}
         <li>
             {{> comment-info comment}}
-            <a href="/dashboard/edit/{{comment.id}}" class="button is-success" id="edit-comment">Edit Comment</a>
+            <a href="/dashboard/edit/{{comment.id}}"
+                class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
+                id="edit-comment"><span class="icon">
+                    <i class="fas fa-edit"></i>
+                </span>
+                <span>
+                    Edit Comment
+                </span>
+            </a>
         </li>
         {{/each}}
     </ol>

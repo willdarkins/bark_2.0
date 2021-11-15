@@ -21,4 +21,4 @@ async function likeClickHandler(event) {
     }
   }
   
-  document.querySelector('.like-btn').addEventListener('click', likeClickHandler);
+  document.querySelector('#like-btn').addEventListener('click', likeClickHandler);

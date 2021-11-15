@@ -38,9 +38,11 @@
                                 <button class="delete" id="about-us-close" aria-label="close"></button>
                             </header>
                             <section class="modal-card-body has-background-success-light has-text-black">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Bark 2.0 is an updated version of the original Bark web app originally created by Luis
+                                Gallardo, Ben Tantillo, and Shayne Lemons.
+                                Bark 2.0 is now a fullstack web app utilizing javascript, node, and Bulma CSS on the
+                                front-end, and mysql, sequelize, express, and handlebars on the back-end.
+                                Bark 2.0 was created by Luis Gallardo, Shayne Lemons, Will Darkins, and Aaron Robinett.
                             </section>
                         </div>
                     </div>
@@ -120,4 +122,8 @@
                 </div>
             </div>
     </nav>
+    <script src="/javascript/navbar.js"></script>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </header>
