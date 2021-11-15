@@ -19,7 +19,15 @@ Park.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0
-        }
+        },
+        latitude: {
+            type: DataTypes.DECIMAL,
+            allowNull: true
+        },
+        longitude: {
+            type: DataTypes.DECIMAL,
+            allowNull: true
+        },
     },
     {
         sequelize,
