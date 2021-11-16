@@ -1,4 +1,5 @@
 
+
 //Collecting and exporting controller data
 // const User = require("./User");
 // const Park = require("./Park");
@@ -81,4 +82,5 @@ const Comment = require('./Comment');
 // });
 
 module.exports = { User, Park }
+
 
