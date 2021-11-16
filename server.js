@@ -39,6 +39,7 @@ app.use(routes);
 
 // turn on connection to db and server
 
+
 sequelize.sync({ force: true }).then(() => {
 
   //database connection must sync with the model definitions and associations
