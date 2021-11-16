@@ -18,7 +18,7 @@ Vote.init(
                 key: 'id'
             }
         },
-        park: {
+        park_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {

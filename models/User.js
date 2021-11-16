@@ -8,6 +8,7 @@ class User extends Model {
     }
 }
 
+// add uuid for primary key
 // create fields/columns for User model
 User.init(
     {
