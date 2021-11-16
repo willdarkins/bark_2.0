@@ -47,6 +47,8 @@ router.post('/', (req, res) => {
         });
 });
 
+
+
 router.put('/upvote', (req, res) => {
     //make sure a session exists
     if(req.session) {
@@ -54,6 +56,8 @@ router.put('/upvote', (req, res) => {
         Post.upvote()
     }
 })
+
+
 
 // update the name of a park (might not need this but just in case)
 router.put('/:id', (req, res) => {
