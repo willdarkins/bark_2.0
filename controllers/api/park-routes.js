@@ -47,10 +47,17 @@ router.post('/', (req, res) => {
         });
 });
 
-// will want a put route for upvoting I can add it when I have the vote model
-/////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
+
+
+router.put('/upvote', (req, res) => {
+    //make sure a session exists
+    if(req.session) {
+        // pass session id along with all destructured properties on req.body
+        Post.upvote()
+    }
+})
+
+
 
 // update the name of a park (might not need this but just in case)
 router.put('/:id', (req, res) => {

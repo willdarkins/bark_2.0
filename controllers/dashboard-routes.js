@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
+
 const { Post, User, Comment, like } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -85,3 +86,4 @@ router.get('/edit/:id', withAuth, (req, res) => {
 });
 
 module.exports = router;
+
