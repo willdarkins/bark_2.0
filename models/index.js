@@ -62,3 +62,4 @@ Park.hasMany(Comment, {
 
 module.exports = { User, Park }
 
+
