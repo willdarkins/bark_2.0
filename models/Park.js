@@ -1,3 +1,4 @@
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -38,3 +39,4 @@ Park.init(
 );
 
 module.exports = Park;
+
