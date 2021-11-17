@@ -22,7 +22,6 @@ Park.init(
             defaultValue: 0
 
         }
-
     },
     {
         sequelize,
