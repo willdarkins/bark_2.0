@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
       'id',
       'name',
       'likes'
-      [sequelize.literal('(SELECT COUNT(*) FROM likes WHERE park.id = vote.park_id)'), 'like_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
   ],
     include: [
       {
@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
         }
       },
       {
-        model: User,
+        model: User, as: "voted_parks",
         attributes: ['username']
       }
     ]
@@ -49,7 +49,7 @@ router.get('/edit/:id', (req, res) => {
       'id',
       'name',
       'likes'
-      [sequelize.literal('(SELECT COUNT(*) FROM likes WHERE park.id = vote.park_id)'), 'like_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
   ],
     include: [
       {
@@ -61,7 +61,7 @@ router.get('/edit/:id', (req, res) => {
         }
       },
       {
-        model: User,
+        model: User, as: "voted_parks",
         attributes: ['username']
       }
     ]
