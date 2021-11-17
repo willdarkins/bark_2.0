@@ -9,13 +9,13 @@ router.get('/', (req, res) => {
   console.log(req.session);
   console.log('======================');
   Park.findAll({
-    where: {
-      user_id: req.session.user_id
-    },
+    // where: {
+    //   user_id: req.session.user_id
+    // },
     attributes: [
       'id',
       'name',
-      'likes'
+      'likes',
       [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
   ],
     include: [
@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
   })
     .then(dbParkData => {
       const parks = dbParkData.map(park => park.get({ plain: true }));
-      res.render('dashboard', { parks, loggedIn: true });
+      res.render('dashboard', { parks, loggedIn: false });
     })
     .catch(err => {
       console.log(err);
