@@ -16,8 +16,21 @@ router.get('/:id', (req, res) => {
     Park.findOne({
         where: {
             id: req.params.id
-        }
-        // Will want to include comments and votes here
+        },
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'park_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User, as: "voted_parks",
+                attributes: ['username']
+            }
+        ]
     })
         .then(dbParkData => {
             if (!dbParkData) {
@@ -51,7 +64,7 @@ router.post('/', (req, res) => {
 
 router.put('/upvote', (req, res) => {
     //make sure a session exists
-    if(req.session) {
+    if (req.session) {
         // pass session id along with all destructured properties on req.body
         Park.upvote()
     }

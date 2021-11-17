@@ -14,10 +14,6 @@ User.belongsToMany(Park, {
     foreignKey: 'user_id'
 });
 
-User.hasMany(Park, {
-    foreignKey: 'user_id'
-});
-
 Park.belongsToMany(User, {
     through: Vote,
     as: 'voted_parks',
