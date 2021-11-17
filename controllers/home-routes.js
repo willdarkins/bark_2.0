@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'name',
-            'likes',
+            //'likes',
              [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
         ],
          include: [
@@ -81,7 +81,7 @@ router.get('/park/:id', (req, res) => {
         attributes: [
             'id',
             'name',
-            'likes'
+            //'likes'
             [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
         ],
         include: [

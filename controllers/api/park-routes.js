@@ -47,11 +47,9 @@ router.get('/:id', (req, res) => {
 
 // Create a new park
 router.post('/', (req, res) => {
-    // expects {name: 'name', latitude: 100, longitude: 100}
+    // expects {name: 'name'}
     Park.create({
-        name: req.body.name,
-        latitude: req.body.latitude,
-        longitude: req.body.longitude
+        name: req.body.name
     })
         .then(dbParkData => res.json(dbParkData))
         .catch(err => {
@@ -61,14 +59,17 @@ router.post('/', (req, res) => {
 });
 
 
-
+// used to upvote (like) a park
 router.put('/upvote', (req, res) => {
-    //make sure a session exists
-    if (req.session) {
-        // pass session id along with all destructured properties on req.body
-        Park.upvote()
-    }
-})
+    // custom static method created in models/Post.js
+    // expects {user_id: , park_id: }
+    Park.upvote(req.body, { Vote, Comment, User })
+        .then(updatedVoteData => res.json(updatedVoteData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 
 
