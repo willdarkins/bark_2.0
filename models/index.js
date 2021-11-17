@@ -60,6 +60,4 @@ Park.hasMany(Comment, {
     foreignKey: 'park_id'
 });
 
-module.exports = { User, Park }
-
-
+module.exports = { User, Park, Vote, Comment }
