@@ -1,0 +1,21 @@
+<div class="tile is-parent is-12 box is-vertical" id="comments">
+  {{#each this}}
+  <section class="tile is-child " id="comment">
+    <div class="has-text-centered title-block">
+      {{user.username}} on {{format_date created_at}}
+    </div>
+    <div class="has-text-centered" id="comment-text">
+      {{comment_text}}
+      <button type="button" class="button has-icons-left has-background-success-dark has-text-white"
+        style="border:none"><span class="icon">
+          <i class="fas fa-check"></i>
+        </span>
+        <span>
+          Like
+        </span>
+      </button>
+  </section>
+  {{/each}}
+</div>
+
+<script src="/public/javascript/like.js"></script>
