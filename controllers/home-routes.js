@@ -2,38 +2,39 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Comment, User, Park } = require('../models');
 
-//POST route to populate page with all posts in the database
+//GET route to populate page with all parks in the database
 router.get('/', (req, res) => {
     Park.findAll({
         attributes: [
             'id',
             'name',
-            'likes'
-            [sequelize.literal('(SELECT COUNT(*) FROM likes WHERE park.id = vote.post_id)'), 'like_count']
+            'likes',
+             [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
         ],
-        include: [
-            {
-                model: Comment,
-                attributes: ['id','comment_text', 'user_id', 'park_id'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
+         include: [
+             {
+                 model: Comment,
+                 attributes: ['id', 'comment_text', 'user_id', 'park_id'],
+                  include: {
+                      model: User,
+                  attributes: ['username']
+                  }
+             },
+              {
+                  model: User, as: "voted_parks",
+                  attributes: ['username']
+              }
+         ]
     })
-        .then(dbPostData => {
+        .then(dbParkData => {
             /*Loops over and maps each Sequelize object into a serialized version of itself
-            saving the results in a new posts array*/
-            const parks = dbPostData.map(park => park.get({ plain: true }));
-            res.render('homepage', {
-                parks,
-                loggedIn: req.session.loggedIn
-            });
+            saving the results in a new parks array*/
+            const parks = dbParkData.map(park => park.get({ plain: true }));
+            // res.json(parks);
+             res.render('homepage', {
+                 parks,
+                 loggedIn: req.session.loggedIn
+             });
         })
         .catch(err => {
             console.log(err);
@@ -61,7 +62,7 @@ router.get('/login', (req, res) => {
 //     res.render('signup');
 // });
 
-//GET and display single post information via searched id
+//GET and display single park information via searched id
 router.get('/park/:id', (req, res) => {
     Park.findOne({
         where: {
@@ -71,7 +72,7 @@ router.get('/park/:id', (req, res) => {
             'id',
             'name',
             'likes'
-            [sequelize.literal('(SELECT COUNT(*) FROM likes WHERE park.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
         ],
         include: [
             {
@@ -83,23 +84,23 @@ router.get('/park/:id', (req, res) => {
                 }
             },
             {
-                model: User,
+                model: User, as: "voted_parks",
                 attributes: ['username']
             }
         ]
     })
-        .then(dbPostData => {
-            if (!dbPostData) {
-                res.status(404).json({ message: 'No post found with this id' });
+        .then(dbParkData => {
+            if (!dbParkData) {
+                res.status(404).json({ message: 'No park found with this id' });
                 return;
             }
 
             // serialize the data
-            const post = dbPostData.get({ plain: true });
+            const park = dbParkData.get({ plain: true });
 
             // pass data to template
             res.render('dashboard', {
-                post,
+                park,
                 loggedIn: req.session.loggedIn
             });
         })
