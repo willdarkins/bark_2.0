@@ -19,9 +19,27 @@ router.get('/:id', (req, res) => {
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
-        }
-        // Will likely want to include comments and upvoted parks here but
-        // I left it out for now until I have those model files
+        },
+        include: [
+            {
+              model: Park,
+              attributes: ['id', 'namke', 'likes']
+            },
+            {
+              model: Comment,
+              attributes: ['id', 'comment_text', 'created_at'],
+              include: {
+                model: Park,
+                attributes: ['title']
+              }
+            },
+            {
+              model: Park,
+              attributes: ['title'],
+              through: Vote,
+              as: 'voted_parks'
+            }
+          ]
     })
         .then(dbUserData => {
             if (!dbUserData) {

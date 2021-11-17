@@ -20,9 +20,14 @@ Park.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0
-
-        }
-
+        },
+        // user_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'user',
+        //         key: 'id'
+        //     }
+        // }
     },
     {
         sequelize,
