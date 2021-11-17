@@ -1,0 +1,17 @@
+.hero.container{   
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero.has-background {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-background {
+    position: absolute;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+  }

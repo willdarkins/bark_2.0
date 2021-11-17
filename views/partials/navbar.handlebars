@@ -1,3 +1,50 @@
+
+<div class="hero-head">
+<header class="navbar"
+    style="background-image: url(https://www.xtrafondos.com/wallpapers/montanas-al-atardecer-en-el-bosque-3931.jpg);">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item has-text-white is-size-3">
+                <img src="/images/barklogo.png">
+                <p>Bark! 2.0 </p>
+            </a>
+           
+        </div>
+        <div id="navbarMenuHeroC" class="navbar-menu">
+        <div class="navbar-end">
+            <a class="is-active">
+                <div class="navbar-item">
+                <a class="navbar-item is-active has-text-white is-size-4" href="index.html">
+                <span class ="icon">
+                    <i class ="fas fa-home"></i>
+                    </span>
+                    <span> Home </span>
+                    </a>
+                </div>
+                <div class="navbar-item has-text-white is-size-2">
+                <div class ="button has-text-white is-text is-size-4" id="about-us-btn">
+                <span class="icon">
+                    <i class="fas fa-user-friends"></i>
+                </span>
+                    <span>
+                 About Bark 2.0
+                    </span>
+                </div>
+            
+                    <div class="modal" id="about-us-modal">
+                        <div class="modal-background"></div>
+                        <div class="modal-card">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title has-text-centered">About Us</p>
+                                <button class="delete" id="about-us-close" aria-label="close"></button>
+                            </header>
+                            <section class="modal-card-body has-text-black">
+                                <p>Bark 2.0 is an updated version of the original Bark web app originally created by Luis
+                                Gallardo, Ben Tantillo, and Shayne Lemons.<br>
+                                <p>Bark 2.0 is now a fullstack web app utilizing javascript, node, and Bulma CSS on the
+                                front-end, and mysql, sequelize, express, and handlebars on the back-end.
+                                Bark 2.0 was created by Luis Gallardo, Shayne Lemons, Will Darkins, and Aaron Robinett.</p>
+
 <header class="has-navbar-fixed-top has-background-success-light"
     style="background-image: url(https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80;);">
     <nav class="navbar is-fixed-top has-background-success-dark" role="navigation" aria-label="main navigation">
@@ -43,13 +90,18 @@
                                 Bark 2.0 is now a fullstack web app utilizing javascript, node, and Bulma CSS on the
                                 front-end, and mysql, sequelize, express, and handlebars on the back-end.
                                 Bark 2.0 was created by Luis Gallardo, Shayne Lemons, Will Darkins, and Aaron Robinett.
+
                             </section>
                         </div>
                     </div>
                 </div>
                 <div class="navbar-item has-text-white is-size-3">
+
+                    <button class="button has-icons-left has-text-white is-text is-size-4" style="border:none" id="contact-us-btn">
+
                     <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
                         id="contact-us-btn">
+
                         <span class="icon">
                             <i class="fas fa-envelope"></i>
                         </span>
@@ -99,7 +151,11 @@
                 </div>
                 <div class="navbar-item has-text-white is-size-3">
                     {{#if loggedOut}}
+
+                    <button class="button has-icons-left has-text-white" style="border:none"
+
                     <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
+
                         id="login">
                         <span class="icon">
                             <i class="fas fa-user"></i>
@@ -109,7 +165,11 @@
                         </a>
                     </button>
                     {{else}}
+
+                    <button class="button has-icons-left has-text-white is-text is-size-4" style="border:none"
+
                     <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
+
                         id="logout">
                         <span class="icon">
                             <i class="fas fa-sign-out-alt"></i>
@@ -120,6 +180,19 @@
                     </button>
                     {{/if}}
                 </div>
+
+        </div>
+        </div> 
+   
+    </div>
+
+  
+
+    
+ 
+</header>
+</div>
+
             </div>
     </nav>
     <script src="/javascript/navbar.js"></script>
@@ -127,3 +200,4 @@
     <script src="/javascript/logout.js"></script>
     {{/if}}
 </header>
+

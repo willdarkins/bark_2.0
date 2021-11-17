@@ -1,4 +1,14 @@
 const router = require('express').Router();
+
+
+
+router.get('/', (req, res) => {
+    res.render('home', {
+    });
+  });
+
+  module.exports = router;
+
 const sequelize = require('../config/connection');
 const { Comment, User, Park } = require('../models');
 
@@ -110,3 +120,4 @@ router.get('/park/:id', (req, res) => {
 });
 
 module.exports = router;
+
