@@ -11,7 +11,11 @@ const Comment = require('./Comment');
 User.belongsToMany(Park, {
     through: Vote,
     as: 'voted_parks',
-    foreignKey: 'park_id'
+    foreignKey: 'user_id'
+});
+
+User.hasMany(Park, {
+    foreignKey: 'user_id'
 });
 
 Park.belongsToMany(User, {

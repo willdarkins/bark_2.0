@@ -76,5 +76,4 @@ $("#search-btn").click(function () {
     var searchInput = searchParkEl.val();
     parkSearch(searchInput);
     local
-
 });

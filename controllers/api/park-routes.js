@@ -53,7 +53,7 @@ router.put('/upvote', (req, res) => {
     //make sure a session exists
     if(req.session) {
         // pass session id along with all destructured properties on req.body
-        Post.upvote()
+        Park.upvote()
     }
 })
 
