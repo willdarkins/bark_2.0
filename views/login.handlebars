@@ -1,59 +1,71 @@
-<div class="has-background-success" id="login-form">
-  <form class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">Username</label>
-    </div>
-    <p class="control has-icons-left">
-      <input class="input is-success" id="login-username" type="text" placeholder="Choose a Username">
-      <span class="icon is-small is-left">
-        <i class="fas fa-user"></i> </span>
-    </p>
-  </form>
-  <form class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">Password</label>
-    </div>
-    <p class="control has-icons-left">
-      <input class="input is-success" id="login-password" type="text" placeholder="Add a Password">
-      <span class="icon is-small is-left">
-        <i class="fas fa-lock"></i>
-      </span>
-    </p>
-  </form>
-  <div class="control">
-    <button class="button is-success" id="login-btn">
-    Login
-    </button>
+<div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+  <div class="column">
   </div>
-</div>
+  {{!-- LOGIN FORM START --}}
+  <div class="column">
+    <section class="hero is-fullheight">
+      <div class="hero-body has-text-centered">
+        <div class="login">
+          <form id="login-form">
+            <h2>LOGIN</h2>
+            <div class="field">
+              <div class="control">
+                <input id="login-username" class="input is-medium is-rounded" type="email"
+                  placeholder="hello@example.com" autocomplete="username" required />
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input id="login-password" class="input is-medium is-rounded" type="password" placeholder="**********"
+                  autocomplete="current-password" required />
+              </div>
+            </div>
+            <button class="button is-block is-fullwidth is-primary is-medium is-rounded" type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
 
-<div class="has-background-success" id="signup-form">
-  <form class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">Username</label>
-    </div>
-    <p class="control has-icons-left">
-      <input class="input is-success" id="signup-username" type="text" placeholder="Choose a Username">
-      <span class="icon is-small is-left">
-        <i class="fas fa-user-plus"></i> </span>
-    </p>
-  </form>
-  <form class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">Password</label>
-    </div>
-    <p class="control has-icons-left">
-      <input class="input is-success" id="signup-password" type="text" placeholder="Add a Password">
-      <span class="icon is-small is-left">
-        <i class="fas fa-lock"></i>
-      </span>
-    </p>
-  </form>
-  <div class="control">
-    <button class="button is-success" id="signup-btn">
-      Signup
-    </button>
+
+    <section class="hero is-fullheight">
+      <div class="hero-body has-text-centered">
+        <div class="login">
+          <form class="signup-form">
+            <h2>SIGNUP</h2>
+            <div class="field">
+              <div class="control">
+                <input id="signup-username" class="input is-medium is-rounded" type="text" placeholder="username"
+                  autocomplete="username" required />
+              </div>
+            </div>
+            <div class="login">
+              <form id="login-form">
+                <div class="field">
+                  <div class="control">
+                    <input id="signup-email" class="input is-medium is-rounded" type="email"
+                      placeholder="hello@example.com" autocomplete="username" required />
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input id="signup-password" class="input is-medium is-rounded" type="password"
+                      placeholder="**********" autocomplete="current-password" required />
+                  </div>
+                </div>
+                <br />
+                <button class="button is-block is-fullwidth is-primary is-medium is-rounded" type="submit">
+                  Login
+                </button>
+              </form>
+            </div>
+        </div>
+    </section>
   </div>
+  <div class="column">
+  </div>
+
 </div>
 
 <script src="/javascript/login.js"></script>
