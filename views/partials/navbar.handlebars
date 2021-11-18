@@ -99,27 +99,21 @@
                 </div>
                 <div class="navbar-item has-text-white is-size-3">
                     {{#if loggedIn}}
-                    <form id="logout">
-                    <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
-                        >
+                    <button id="logout" class="button has-icons-left has-background-success-dark has-text-white" style="border:none">
                         <span class="icon">
                             <i class="fas fa-user"></i>
                         </span>                       
                             Logout   
                     </button>
-                    </form>
                     {{else}}
-                    <form class="login-form">
-                    <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
-                        id="logout">
+                    <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none">
                         <span class="icon">
                             <i class="fas fa-sign-out-alt"></i>
                         </span>
                         <span>
-                            Logout
+                            <a href="/login">Login
                         </span>
                     </button>
-                    </form>
                     {{/if}}
                 </div>
             </div>
