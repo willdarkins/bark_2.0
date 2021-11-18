@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'name',
-      'likes',
+      //'likes',
       [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
   ],
     include: [
@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
   })
     .then(dbParkData => {
       const parks = dbParkData.map(park => park.get({ plain: true }));
-      res.render('dashboard', { parks, loggedIn: false });
+      res.render('dashboard', { parks, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
@@ -48,7 +48,7 @@ router.get('/edit/:id', (req, res) => {
     attributes: [
       'id',
       'name',
-      'likes'
+      //'likes'
       [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
   ],
     include: [
