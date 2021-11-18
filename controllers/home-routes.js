@@ -14,6 +14,7 @@ const { Comment, User, Park } = require('../models');
 
 //GET route to populate page with all parks in the database
 router.get('/', (req, res) => {
+    console.log(req.session);
     Park.findAll({
         attributes: [
             'id',

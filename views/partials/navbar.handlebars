@@ -13,7 +13,7 @@
             <div class="navbar-end">
                 <div class="navbar-item has-text-white is-size-3">
                     <a class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
-                        href="index.html">
+                        href="/">
                         <span class="icon has-text-white">
                             <i class="fas fa-home"></i>
                         </span>
@@ -99,16 +99,17 @@
                 </div>
                 <div class="navbar-item has-text-white is-size-3">
                     {{#if loggedIn}}
+                    <form id="logout">
                     <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
-                        id="login">
+                        >
                         <span class="icon">
                             <i class="fas fa-user"></i>
-                        </span>
-                        <a href="views/login.handlebars">
-                            Login
-                        </a>
+                        </span>                       
+                            Logout   
                     </button>
+                    </form>
                     {{else}}
+                    <form class="login-form">
                     <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
                         id="logout">
                         <span class="icon">
@@ -118,6 +119,7 @@
                             Logout
                         </span>
                     </button>
+                    </form>
                     {{/if}}
                 </div>
             </div>

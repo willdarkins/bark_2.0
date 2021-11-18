@@ -35,7 +35,7 @@ router.get('/', (req, res) => {
   })
     .then(dbParkData => {
       const parks = dbParkData.map(park => park.get({ plain: true }));
-      res.render('dashboard', { parks, loggedIn: false });
+      res.render('dashboard', { parks, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
