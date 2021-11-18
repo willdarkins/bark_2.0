@@ -16,8 +16,21 @@ router.get('/:id', (req, res) => {
     Park.findOne({
         where: {
             id: req.params.id
-        }
-        // Will want to include comments and votes here
+        },
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'park_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User, as: "voted_parks",
+                attributes: ['username']
+            }
+        ]
     })
         .then(dbParkData => {
             if (!dbParkData) {
@@ -34,11 +47,9 @@ router.get('/:id', (req, res) => {
 
 // Create a new park
 router.post('/', (req, res) => {
-    // expects {name: 'name', latitude: 100, longitude: 100}
+    // expects {name: 'name'}
     Park.create({
-        name: req.body.name,
-        latitude: req.body.latitude,
-        longitude: req.body.longitude
+        name: req.body.name
     })
         .then(dbParkData => res.json(dbParkData))
         .catch(err => {
@@ -47,10 +58,20 @@ router.post('/', (req, res) => {
         });
 });
 
-// will want a put route for upvoting I can add it when I have the vote model
-/////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
+
+// used to upvote (like) a park
+router.put('/upvote', (req, res) => {
+    // custom static method created in models/Post.js
+    // expects {user_id: , park_id: }
+    Park.upvote(req.body, { Vote, Comment, User })
+        .then(updatedVoteData => res.json(updatedVoteData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+
 
 // update the name of a park (might not need this but just in case)
 router.put('/:id', (req, res) => {

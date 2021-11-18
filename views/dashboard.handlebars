@@ -1,7 +1,7 @@
-<section class="mx-6 pt-6 is-align-content-center is-fullheight-with-navbar">
-    <div class="tile is-12 box is-ancestor p-3">
+<section class="hero-body mt-6 pt-6 has-background-success-light is-align-content-center">
+    <div class="tile is-12 box has-background-primary-dark is-ancestor p-3">
         <div class="tile is-4 is-vertical is-parent">
-            <article class="tile box is-child has-background-white" style="height: fit-content;">
+            <article class="tile box is-child has-background-success-light" style="height: fit-content;">
                 <div class="panel" id="search-panel">
                     <div class="panel-block is-justify-content-center">
                         <div class="field has-addons is-flex-grow-1">
@@ -13,7 +13,7 @@
                                     placeholder="Search for National Parks">
                             </div>
                             <div class="control">
-                                <button class="button is-success" id="search-btn">
+                                <button class="button has-background-success-dark has-text-white" id="search-btn">
                                     Search
                                 </button>
                             </div>
@@ -22,66 +22,69 @@
                 </div>
                 <div id="nat-park-info" style="display:none">
                     <p class="title block has-text-centered" id="nat-park-name"></p>
-                    <p class="has-text-centered" id="nat-park-description"></p>
+                    <p class="block has-text-centered" id="nat-park-description"></p>
                 </div>
-            </article>
+                <article class="tile is-child box has-background-success">
+                    <h2 class="has-text-centered">Add a Comment</h2>
+                    <form class="new-comment-form">
+                        <div>
+                            <label for="comment-title">Title</label>
+                            <input class="input" type="text" id="comment-title" name="comment-title" />
+                        </div>
+                        <div>
+                            <label for="comment-text">Comment</label>
+                            <input class="input" type="text" id="comment-text" name="comment-text" />
+                        </div>
+                        <button type="submit"
+                            class="button mt-2 has-icons-left has-background-success-dark has-text-white"
+                            style="border:none" id="add-comment-btn">
+                            <span class="icon">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                            <span class>
+                                Add Comment
+                            </span>
+                        </button>
+                    </form>
+                </article>
         </div>
         <div class="tile is-8 is-vertical is-parent" id="map-container" style="display:none">
-            <article class="tile box is-child has-background-white" style="height: fit-content;">
-                <div id="nat-park-map" style="height:500px;">
-                </div>
+            <article class="tile box is-child has-background-primary-light" style="height: fit-content;">
+                <div id="nat-park-map" style="height:500px;"></div>
             </article>
+            <div class="tile is-child">
+                <a class="button is-normal has-background-success-light is-fullwidth" id="nps-website"
+                    href="https://www.nps.gov/index.htm" target="_blank">Learn More
+                </a>
+            </div>
         </div>
     </div>
-    <a class="button is-normal has-background-success-light is-fullwidth" id="nps-website"
-        href="https://www.nps.gov/index.htm" target="_blank">Learn More
-    </a>
+    <div class="tile is-parent is-vertical is-12">
+        {{#if comments.length}}
+        <article class="tile is-child box">
+            <h2>Comments</h2>
+            <ol>
+                {{#each comments as |comment|}}
+                <li>
+                    {{> comment-info comment}}
+                    <a href="/dashboard/edit/{{comment.id}}"
+                        class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
+                        id="edit-comment"><span class="icon">
+                            <i class="fas fa-edit"></i>
+                        </span>
+                        <span>
+                            Edit Comment
+                        </span>
+                    </a>
+                </li>
+                {{/each}}
+            </ol>
+            {{/if}}
+        </article>
+    </div>
 </section>
-<section>
-    <h2>Add a Comment</h2>
-
-    <form class="new-comment-form">
-        <div>
-            <label for="comment-title">Title</label>
-            <input type="text" id="comment-title" name="comment-title" />
-        </div>
-        <div>
-            <label for="comment-text">Comment</label>
-            <input type="text" id="comment-text" name="comment-text" />
-        </div>
-        <button type="submit" class="button has-icons-left has-background-success-dark has-text-white"
-            style="border:none" id="add-comment-btn">
-            <span class="icon">
-                <i class="fas fa-plus"></i>
-            </span>
-            <span>
-                Add Comment
-            </span>
-        </button>
-    </form>
-</section>
-{{#if comments.length}}
-<section>
-    <h2>Comments</h2>
-    <ol>
-        {{#each comments as |comment|}}
-        <li>
-            {{> comment-info comment}}
-            <a href="/dashboard/edit/{{comment.id}}"
-                class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
-                id="edit-comment"><span class="icon">
-                    <i class="fas fa-edit"></i>
-                </span>
-                <span>
-                    Edit Comment
-                </span>
-            </a>
-        </li>
-        {{/each}}
-    </ol>
-</section>
-{{/if}}
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6PPvRcVtW9IYbZoNZHRNLzv369862KVs&v=weekly"
     async></script>
-<script src="/public/javascript/add-comment.js"></script>
+<script src="/javascript/add-comment.js"></script>
+<script src="/javascript/dashboard.js"></script>
