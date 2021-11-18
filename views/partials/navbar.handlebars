@@ -1,8 +1,10 @@
+
 <div class="hero-head">
     <nav class="navbar is-fixed-top has-background-success-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <span class="navbar-item has-text-white is-size-3"></h1>
                 <img src="/images/barklogo.png" alt="site-logo" style="max-height: 70px" class="py-2" />
+
                 <p>Bark! 2.0 </p>
             </span>
         </div>
@@ -98,6 +100,7 @@
                 </div>
                 <div class="navbar-item has-text-white is-size-3">
                     {{#if loggedIn}}
+
                     <a class="button has-icons-left has-background-success-dark has-text-white" id="logout"
                         style="border:none" href="/login">
                         <span class="icon">
@@ -108,11 +111,14 @@
                     {{else}}
                     <a class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
                         href="/login">
+
                         <span class="icon">
                             <i class="fas fa-sign-out-alt"></i>
                         </span>
                         <span>
+
                             Login
+
                         </span>
                     </a>
                     {{/if}}
