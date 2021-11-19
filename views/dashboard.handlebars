@@ -6,6 +6,7 @@
                     <div class="panel-block is-justify-content-center">
                         <div class="field has-addons is-flex-grow-1">
                             <div class="control has-icons-left is-flex-grow-1">
+                                {{!-- serach button start --}}
                                 <span class="icon">
                                     <i class="fas fa-search" aria-hidden="true"></i>
                                 </span>
@@ -20,6 +21,7 @@
                         </div>
                     </div>
                 </div>
+                {{!-- serach button end --}}
                 <div id="nat-park-info" style="display:none">
                     <p class="title block has-text-centered" id="nat-park-name"></p>
                     <p class="has-text-centered" id="nat-park-description"></p>
@@ -38,6 +40,7 @@
     </a>
 </section>
 <section>
+{{!-- add comment form start --}}
     <h2>Add a Comment</h2>
 
     <form class="new-comment-form">
@@ -60,6 +63,8 @@
         </button>
     </form>
 </section>
+{{!-- add comment form end --}}
+{{!-- conditional to display list of comments, if there are any --}}
 {{#if comments.length}}
 <section>
     <h2>Comments</h2>
@@ -81,7 +86,7 @@
     </ol>
 </section>
 {{/if}}
-
+{{!-- connecting static javascript files and Google Maps API to project --}}
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6PPvRcVtW9IYbZoNZHRNLzv369862KVs&v=weekly"
     async></script>
 <script src="/javascript/add-comment.js"></script>

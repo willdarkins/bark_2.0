@@ -111,15 +111,17 @@
                 <div class="navbar-item has-text-white is-size-3">
                     {{!-- conditional to display logged out button if user in logged in --}}
                     {{#if loggedIn}}
-                    <button id="logout" class="button has-icons-left has-background-success-dark has-text-white" style="border:none">
+                    <button id="logout" class="button has-icons-left has-background-success-dark has-text-white"
+                        style="border:none">
                         <span class="icon">
                             <i class="fas fa-user"></i>
-                        </span>                       
-                            Logout   
+                        </span>
+                        Logout
                     </button>
                     {{else}}
                     {{!-- conditional to display logged in button if user in logged out or not signed up --}}
-                    <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none">
+                    <button class="button has-icons-left has-background-success-dark has-text-white"
+                        style="border:none">
                         <span class="icon">
                             <i class="fas fa-sign-out-alt"></i>
                         </span>
