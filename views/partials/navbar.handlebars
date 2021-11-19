@@ -2,6 +2,7 @@
     style="background-image: url(https://www.xtrafondos.com/wallpapers/montanas-al-atardecer-en-el-bosque-3931.jpg);">
     <nav class="navbar is-fixed-top has-background-success-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
+            {{!-- logo --}}
             <span class="navbar-item has-text-white is-size-3"></h1>
                 <img src="public/images/barklogo.png" alt="site-logo" style="max-height: 100px" class="py-2" />
                 <p>Bark! 2.0 </p>
@@ -11,6 +12,7 @@
             <div class="navbar-start">
             </div>
             <div class="navbar-end">
+                {{!-- home button start --}}
                 <div class="navbar-item has-text-white is-size-3">
                     <a class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
                         href="/">
@@ -20,7 +22,9 @@
                         <span>Home</span>
                     </a>
                 </div>
+                {{!-- home button end --}}
                 <div class="navbar-item has-text-white is-size-3">
+                    {{!-- about button start --}}
                     <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
                         id="about-us-btn">
                         <span class="icon">
@@ -30,8 +34,10 @@
                             About Bark 2.0
                         </span>
                     </button>
+                    {{!-- about button end --}}
                     <div class="modal" id="about-us-modal">
                         <div class="modal-background"></div>
+                        {{!-- about card info start --}}
                         <div class="modal-card">
                             <header class="modal-card-head has-background-success-dark">
                                 <p class="modal-card-title has-text-centered has-text-white">About Us</p>
@@ -47,7 +53,9 @@
                         </div>
                     </div>
                 </div>
+                {{!-- about card info end --}}
                 <div class="navbar-item has-text-white is-size-3">
+                    {{!-- contact us button start --}}
                     <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none"
                         id="contact-us-btn">
                         <span class="icon">
@@ -57,8 +65,10 @@
                             Contact Us
                         </span>
                     </button>
+                    {{!-- contact us button end --}}
                     <div class="modal" id="contact-us-modal">
                         <div class="modal-background"></div>
+                        {{!-- about us card info start --}}
                         <div class="modal-card">
                             <header class="modal-card-head has-background-success-dark">
                                 <p class="modal-card-title has-text-centered has-text-white">Contact Us</p>
@@ -97,7 +107,9 @@
                         </div>
                     </div>
                 </div>
+                {{!-- about us card info end --}}
                 <div class="navbar-item has-text-white is-size-3">
+                    {{!-- conditional to display logged out button if user in logged in --}}
                     {{#if loggedIn}}
                     <button id="logout" class="button has-icons-left has-background-success-dark has-text-white" style="border:none">
                         <span class="icon">
@@ -106,6 +118,7 @@
                             Logout   
                     </button>
                     {{else}}
+                    {{!-- conditional to display logged in button if user in logged out or not signed up --}}
                     <button class="button has-icons-left has-background-success-dark has-text-white" style="border:none">
                         <span class="icon">
                             <i class="fas fa-sign-out-alt"></i>
@@ -118,6 +131,7 @@
                 </div>
             </div>
     </nav>
+    {{!-- conditional to connect logged in, or logged out javascript static files --}}
     <script src="/javascript/navbar.js"></script>
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
