@@ -36,10 +36,6 @@ class Park extends Model {
         });
     }
 }
-
-// Park has 2 fields:
-// id: the primary key
-// name: the name of the park
 Park.init(
     {
         id: {

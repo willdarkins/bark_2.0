@@ -1,8 +1,7 @@
-
+//export all api routes through router, to server
 const homeRoutes = require('./home-routes');
 
 const router = require('express').Router();
-
 
 const apiRoutes = require('./api/');
 
