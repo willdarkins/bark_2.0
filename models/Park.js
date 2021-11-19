@@ -1,8 +1,9 @@
-
+// Table of parks
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Park extends Model {
+    // static function to 'like' a park. Adds to the Vote table
     static upvote(body, models) {
         return models.Vote.create({
             user_id: body.user_id,
@@ -36,6 +37,9 @@ class Park extends Model {
     }
 }
 
+// Park has 2 fields:
+// id: the primary key
+// name: the name of the park
 Park.init(
     {
         id: {
@@ -56,7 +60,6 @@ Park.init(
         modelName: 'park'
     }
 );
-
 
 module.exports = Park;
 

@@ -12,7 +12,7 @@ var mapApiKey = "AIzaSyA6PPvRcVtW9IYbZoNZHRNLzv369862KVs";
 
 // adds park to database
 async function addPark(parkName) {
-    console.log(`//////////////////////////////////////////////////\n///////////////////////////\nadding park ${parkName}!`)
+    console.log(`Adding park ${parkName}!`);
     const response = await fetch(`/api/parks`, {
         method: 'POST',
         body: JSON.stringify({

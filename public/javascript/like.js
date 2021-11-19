@@ -1,3 +1,4 @@
+// form handler to like a park when clicking like button
 async function likeClickHandler(event) {
     event.preventDefault();
   
