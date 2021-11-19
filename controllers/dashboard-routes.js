@@ -2,20 +2,15 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 
 const { User, Comment, Vote, Park } = require('../models');
-// const withAuth = require('../utils/auth');
 
 // get all parks for dashboard
 router.get('/', (req, res) => {
   console.log(req.session);
   console.log('======================');
   Park.findAll({
-    // where: {
-    //   user_id: req.session.user_id
-    // },
     attributes: [
       'id',
       'name',
-      //'likes',
       [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
   ],
     include: [
