@@ -1,3 +1,4 @@
+//form handler to recieve value of username and password, then trim white space
 async function loginFormHandler(event) {
     event.preventDefault();
   
