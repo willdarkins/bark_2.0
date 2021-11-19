@@ -1,15 +1,20 @@
+// Table of users
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
 class User extends Model {
+    // Function for validating login password
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
-// add uuid for primary key
-// create fields/columns for User model
+// User has 4 fields:
+// id: the primary key
+// username: a string chosen by the user as their username
+// email: the user's email, to be used for logging in
+// password: a password chosen by the user
 User.init(
     {
         id: {
@@ -39,8 +44,8 @@ User.init(
         }
     },
     {
+        // hooks to encrypt user password using bcrypt
         hooks: {
-            // set up beforeCreate lifecycle "hook" functionality
             async beforeCreate(newUserData) {
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;

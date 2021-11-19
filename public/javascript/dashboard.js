@@ -10,6 +10,26 @@ var map = null;
 var npsApiKey = "BccmWNanuJv5sB3a6yzsSqXUZVNxkR7YdgC6BACq";
 var mapApiKey = "AIzaSyA6PPvRcVtW9IYbZoNZHRNLzv369862KVs";
 
+// adds park to database
+async function addPark(parkName) {
+    console.log(`Adding park ${parkName}!`);
+    const response = await fetch(`/api/parks`, {
+        method: 'POST',
+        body: JSON.stringify({
+            name: parkName
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    if (response.ok) {
+        return 'Park added!';
+    } else {
+        alert(response.statusText);
+        return 'Park not added!'
+    }
+}
+
 // search for park names in NPS api
 function parkSearch(parkName) {
     var apiUrl = "https://developer.nps.gov/api/v1/parks?q=" + parkName + "&api_key=" + npsApiKey
@@ -24,7 +44,7 @@ function parkSearch(parkName) {
         } else {
             console.log("Received unexpected response: " + response.status);
         }
-    })
+    }).then(addPark(parkName))
         .catch(function (error) {
             console.error(error);
         });

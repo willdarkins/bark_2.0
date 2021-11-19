@@ -1,10 +1,10 @@
-<header class="has-navbar-fixed-top has-background-success-light"
-    style="background-image: url(https://www.xtrafondos.com/wallpapers/montanas-al-atardecer-en-el-bosque-3931.jpg);">
+<div class="hero-head">
     <nav class="navbar is-fixed-top has-background-success-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             {{!-- logo --}}
             <span class="navbar-item has-text-white is-size-3"></h1>
-                <img src="public/images/barklogo.png" alt="site-logo" style="max-height: 100px" class="py-2" />
+                <img src="/images/barklogo.png" alt="site-logo" style="max-height: 70px" class="py-2" />
+
                 <p>Bark! 2.0 </p>
             </span>
         </div>
@@ -111,12 +111,15 @@
                 <div class="navbar-item has-text-white is-size-3">
                     {{!-- conditional to display logged out button if user in logged in --}}
                     {{#if loggedIn}}
+
                     <button id="logout" class="button has-icons-left has-background-success-dark has-text-white"
                         style="border:none">
-                        <span class="icon">
-                            <i class="fas fa-user"></i>
-                        </span>
-                        Logout
+                        <a class="button has-icons-left has-background-success-dark has-text-white" id="logout"
+                            style="border:none" href="/login">
+                            <span class="icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            Logout
                     </button>
                     {{else}}
                     {{!-- conditional to display logged in button if user in logged out or not signed up --}}
@@ -126,10 +129,12 @@
                             <i class="fas fa-sign-out-alt"></i>
                         </span>
                         <span>
-                            <a href="/login">Login
+
+                            Login
+
                         </span>
-                    </button>
-                    {{/if}}
+                        </a>
+                        {{/if}}
                 </div>
             </div>
     </nav>
@@ -138,4 +143,4 @@
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}
-</header>
+</div>

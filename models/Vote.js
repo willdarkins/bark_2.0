@@ -1,8 +1,13 @@
+// Table of park upvotes or 'likes'
 const { Model, DataTypes, INTEGER } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Vote extends Model { }
 
+// Vote has 3 fields:
+// id: the primary key
+// user_id: foreign key from User model for the user 'liking' the park
+// park_id: foreign key from the Park model
 Vote.init(
     {
         id: {
