@@ -1,15 +1,12 @@
-
 <section class="hero-body has-background-success-light">
   <div class="container is-fluid  pt-6">
     <div class="columns is-mobile is-centered is-vcentered">
       {{!-- LOGIN FORM START --}}
       <div class="column is-4 has-text-centered">
-
         <div class="login">
           <form id="login-form">
             <h2>LOGIN</h2>
             <div class="field">
-
               <div class="label">Email</div>
               <div class="control">
                 <input id="login-username" class="input is-medium is-rounded" type="email"
@@ -19,30 +16,29 @@
             <div class="field pb-5">
               <div class="label">Password</div>
               <div class="control">
-                <input id="login-password" class="input is-medium is-rounded" type="password" placeholder="Enter your password"
-                  autocomplete="current-password" required />
+                <input id="login-password" class="input is-medium is-rounded" type="password"
+                  placeholder="Enter your password" autocomplete="current-password" required />
               </div>
             </div>
-            <button class="button is-block is-fullwidth has-background-primary-dark has-text-white is-medium is-rounded" type="submit">
+            <button class="button is-block is-fullwidth has-background-primary-dark has-text-white is-medium is-rounded"
+              type="submit">
               Login
             </button>
           </form>
         </div>
       </div>
+      {{!-- LOGIN END --}}
 
+      {{!-- SIGNUP START --}}
       <div class="column is-1 has-text-centered is-justify-content-center">
-        <p >Or</p>
+        <p>Or</p>
       </div>
-
       <div class="column is-4 has-text-centered">
-
         <div class="login">
           <form class="signup-form">
             <h2>SIGNUP</h2>
             <div class="field">
-
               <div class="label">Create a username</div>
-
               <div class="control">
                 <input id="signup-username" class="input is-medium is-rounded" type="text" placeholder="username"
                   autocomplete="username" required />
@@ -68,13 +64,16 @@
                 </div>
                 <br />
 
-                <button class="button is-block is-fullwidth has-background-primary-dark has-text-white is-medium is-rounded" type="submit">
+                <button
+                  class="button is-block is-fullwidth has-background-primary-dark has-text-white is-medium is-rounded"
+                  type="submit">
                   Signup
 
                 </button>
               </form>
             </div>
         </div>
+        {{!-- SIGNUP END --}}
 
       </div>
     </div>

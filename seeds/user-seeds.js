@@ -1,3 +1,4 @@
+//collection of user seeds following format from user model 
 const sequelize = require('../config/connection');
 const { User, Park } = require('../models');
 

@@ -37,13 +37,12 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//find a dashboard by id
 router.get('/edit/:id', (req, res) => {
   Park.findByPk(req.params.id, {
     attributes: [
       'id',
       'name',
-      //'likes'
       [sequelize.literal('(SELECT COUNT(*) FROM park LEFT JOIN vote ON park.id = vote.park_id)'), 'like_count']
   ],
     include: [

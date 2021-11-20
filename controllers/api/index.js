@@ -1,3 +1,4 @@
+//connect all routes trhough router
 const router = require('express').Router();
 
 const userRoutes = require('./user-routes.js');
@@ -9,5 +10,5 @@ router.use('/comments', commentRoutes)
 
 router.use('/users', userRoutes);
 router.use('/parks', parkRoutes);
-
+//export router
 module.exports = router;

@@ -10,5 +10,4 @@ $("#search-btn").click(function (event) {
     event.preventDefault()
     var searchInput = searchParkEl.val();
     dashboardAndParkSearch(searchInput)
-    // parkSearch(searchInput);
 });
